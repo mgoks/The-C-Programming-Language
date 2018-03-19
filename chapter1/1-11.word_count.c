@@ -15,13 +15,12 @@ int main()
 
     nw = 0;
     while ((c = getchar()) != EOF){
-        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){ // if the sequence begins with a letter
-            while ( (                       c != EOF                   ) && 
-                    ( ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) || 
-                      (              c >= '0' && c <= '9'              ) ||
-                                            c == '\''                      ))
+        // if the sequence begins with a letter
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
+        // while (c is not EOF) and (c is a letter or a digit or an apostrophe)
+           while ((c != EOF) && (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) || (c >= '0' && c <= '9') || c == '\''))
                 c = getchar();
-            ++nw;
+            ++nw; // increment word count when EOF is reached or if c is none of the above
         }
     }
     printf("%d words\n", nw);
