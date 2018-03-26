@@ -1,4 +1,6 @@
-/* Revise the word count program to use a better definition of "word" for example, a sequence of 
+/* From the first edition:
+
+   Revise the word count program to use a better definition of "word" for example, a sequence of 
    letters, digits, and apostrophes that begin with a letter.
 
    Here the string "123abc" is not considered a word but the substring "abc" is,
