@@ -21,6 +21,10 @@ int main()
                 while (i >= 0 && (line[i] == ' ' || line[i] == '\t')){
                     line[i] = '\n';
                     line[i+1] = '\0';
+                    // for testing purposes
+                    // line[i] = '.';
+                    // line[i+1] = '\n';
+                    // line[i+2] = '\0';
                     --i;
                 }
             }
