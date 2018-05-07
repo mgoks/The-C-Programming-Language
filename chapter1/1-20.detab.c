@@ -3,7 +3,7 @@ to the next tab stop. Assumes a fixed set of tab stops */
 
 #include <stdio.h>
 
-#define TABSTOP  8
+#define TABSTOP 8
 
 int main()
 {
