@@ -7,7 +7,7 @@ and as much as possible of the text. */
 too long, and then cope as it wishes. */
 
 #include <stdio.h>
-#define MAXLINE 1000 /* maximum input line size */
+#define MAXLINE 10 /* maximum input line size */
 
 int getLine(char line[], int maxline);
 void copy(char to[], char from[]);
@@ -23,7 +23,7 @@ int main()
     max = 0;
     while ((len = getLine(line, MAXLINE)) > 0){
         if (len == MAXLINE-1 && line[MAXLINE-1] != '\n')
-            while ( (c = getchar()) != '\n' && c != EOF)
+            while ((c = getchar()) != '\n' && c != EOF)
                 ++len;
         if (len > max){
             max = len;
