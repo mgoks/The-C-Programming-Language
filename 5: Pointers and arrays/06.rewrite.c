@@ -175,7 +175,7 @@ int getop(char *s)
     int c;
 
     // Skip blanks and tabs
-    while ( (*s = c = getch()) == ' ' || c == '\t ')
+    while ( (*s = c = getch()) == ' ' || c == '\t')
         ;
     *(s+1) = '\0';
     // if the next char is not digit or decimal point, return it
