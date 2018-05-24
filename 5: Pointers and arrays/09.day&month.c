@@ -14,14 +14,12 @@ void month_day(int, int, int *, int *);
 
 int main()
 {
-    // *(*(daytab+row)+col) == daytab[row][col]
-
-    printf("%d\n", day_of_year(2018, 05, 22));
+    printf("%d\n", day_of_year(2018, 05, 24));
     printf("%d\n", day_of_year(2018, 12, 31));
     
     int m, d;
     
-    month_day(2018, 142, &m, &d);
+    month_day(2018, 144, &m, &d);
     printf("%d/%d\n", m, d);
     month_day(2018, 365, &m, &d);
     printf("%d/%d\n", m, d);
@@ -29,21 +27,25 @@ int main()
 
 int day_of_year(int year, int month, int day)
 {
-    int leap, i;
+    int leap;
+    char *p;
 
     leap = (year%4 == 0 && year%100 != 0) || year%400 == 0;
-    for (i = 1; i < month; i++)
-        day += *(*(daytab+leap)+i);
+    p = *daytab+leap; // == &daytab[leap][0];
+    while (--month)
+        day += *++p;
     return day;
 }
 
 void month_day(int year, int yearday, int *pmonth, int *pday)
 {
-    int i, leap;
+    int leap, i;
+    char *p;
 
     leap = (year%4 == 0 && year%100 != 0) || year%400 == 0;
-    for (i = 1; yearday > *(*(daytab+leap)+i); i++)
-        yearday -= *(*(daytab+leap)+i);
+    p = *daytab + leap;
+    for (i = 1; yearday > *++p; i++)
+        yearday -= *p;
     *pmonth = i;
     *pday = yearday;
 }
